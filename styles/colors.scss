@@ -1,0 +1,15 @@
+$colors: green, blue, lime, teal, cyan, white, black, orange, gold, orangered, darkred, red;
+
+@each $color in $colors {
+    .txt-#{$color} {
+        color: $color;
+    }
+    .bg-#{$color} {
+        background: $color;
+    }
+}
+
+$glass: linear-gradient(135deg, rgba(127, 127, 127, .1),  rgba(127, 127, 127, 0));
+
+.bg-glass {background: $glass;
+backdrop-filter: blur(10px);}

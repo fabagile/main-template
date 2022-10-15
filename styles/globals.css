@@ -7,7 +7,7 @@ body {
   font-size: 16px;
 }
 body {
-  min-height: 100%;
+  min-height: 100vh;
 }
 /* html,
 body {
@@ -15,6 +15,7 @@ body {
 } */
 
 #__next {
+  min-height: 100vh;
   grid-gap: 1pt;
   display: grid;
   grid-template-columns: 1fr;
@@ -23,6 +24,8 @@ body {
     "nav"
     "page"
     "footer";
+    /* grid-auto-rows: min-content; */
+  align-items: stretch;
 }
 
 header {
@@ -35,6 +38,7 @@ nav {
   grid-area: nav;
   display: grid;
   padding: 1em 0.5em;
+  grid-gap: 1em;
   grid-template-areas:
     "brand toggler"
     "links links"
@@ -68,18 +72,24 @@ nav {
 }
 .logs {
   grid-area: logs;
+  display: flex;
+    flex-direction: column;
+    gap: 7px;
 }
 
 #page {
   grid-area: page;
   /* min-height: 100vh; */
   /* padding: 4rem 0; */
+  align-items: stretch;
+
   flex: 1;
   background: cyan;
-  padding: 1em 0;
+  padding: 1em ;
 }
 footer {
   grid-area: footer;
+  align-self: end;
   display: flex;
   flex-direction: column;
   line-height: 1;
@@ -90,6 +100,13 @@ footer {
   background: lightgray;
 }
 
+@media (max-width: 767px) { 
+  #__next {
+    width: 100%;
+  }
+
+
+}
 @media (min-width: 768px) {
   #__next {
     grid-template-columns: 1fr 5fr;
@@ -163,9 +180,9 @@ footer {
   }
   .logs {
     place-self: center end;
-    display: flex;
+    /* display: flex; */
     flex-direction: row;
-    gap: 7px;
+    /* gap: 7px; */
   }
 }
 

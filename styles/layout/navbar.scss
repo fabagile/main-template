@@ -1,0 +1,100 @@
+nav {
+    background: inherit;
+    display: grid;
+    grid-template-areas:
+      "brand toggler"
+      "links links"
+      "user-access user-access"
+    ;
+    padding: 4px;
+    grid-template-columns: 10fr 1fr;
+    button {
+      width: 100%;
+      min-width: 7em;
+      margin: 7px 0;
+    }
+    #brand {
+      align-self: center;
+      grid-area: brand;
+    }
+    #toggler {
+      grid-area: toggler;
+      justify-self: end;
+    }
+    #links {
+      grid-area: links;
+      grid-column: 1/ span -1;
+      div {
+        line-height: 1.4em;
+        color: inherit;
+        background: inherit;
+        text-align: center;
+        &:hover {
+          filter: invert(1);
+          -webkit-filter: invert(1);
+        }
+      }
+    }
+    #user-access {
+      grid-area: user-access;
+      grid-column: 1/ span  -1;
+      justify-self: center;
+      button {
+        width: 100%;
+      }
+
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    nav {
+        display: flex;
+        flex-direction: column;
+        // grid-template-columns: 1fr;
+        // grid-template-rows: auto 10fr auto ;
+        align-items: center;
+        min-height: 100%;
+        #brand {
+          height: auto;
+          align-self: center;
+          // justify
+         
+        }
+        #toggler {
+          display: none;
+        }
+        #links {
+          flex: 1;
+
+          align-self: stretch;
+        }
+        #user-access {
+          display: flex;
+          flex-direction: column;
+          // justify-self: end;
+          button {
+            display: block;
+          }
+        }
+      }
+    
+  }
+  @media screen and (min-width: 1024px) {
+    nav {
+      flex-direction: row;
+      gap: 2em;
+      #links, #user-access {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+      }
+      #links {
+        gap: 1em;
+        justify-content: center;
+      }
+      #user-access {
+        gap: 7px;
+      }
+    }
+
+  }
